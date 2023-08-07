@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "client": "cd client && npm start",
-    "server": "cd server && nodemon server.js",
+    "server": "concurrently --kill-others-on-fail \"cd server && npx tsc && nodemon dist/index.js\" \"cd server && tsc -w\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "author": "",
